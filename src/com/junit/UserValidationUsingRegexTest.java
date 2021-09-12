@@ -81,8 +81,4 @@ public class UserValidationUsingRegexTest {
 //        Assert.assertEquals(true,result);
         Assert.assertFalse(result);
     }
-
-
-
-
 }
