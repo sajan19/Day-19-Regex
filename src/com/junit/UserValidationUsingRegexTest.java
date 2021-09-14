@@ -1,32 +1,42 @@
+package com.junit;
+
+import com.junit.UserValidationUsingRegex;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-
 import java.util.Arrays;
 import java.util.Collection;
 @RunWith(Parameterized.class)
-public class EmailValidation{
-    String email;
-    boolean expectedResult;
+public class UserValidationUsingRegexTest {
+    class emailValidationTest {
+        String email;
+        boolean expectedResult;
 
-    public EmailValidation(String email, boolean expectedResult) {
-        this.email = email;
-        this.expectedResult = expectedResult;
-    }
-    @Parameterized.Parameters
-    public static Collection data(){
-        return Arrays.asList(new Object[][]{ {"abc@yahoo.com", true},
-            {"abc-100@yahoo.com", true}, {"abc.100@yahoo.com",true},{"abc-100@abc.net",true},
-            {"abc.100@abc.com.au",true},{"abc@1.com",true},{"abc@gmail.com.com",true},{"abc+100@gmail.com",true},
-            {"abc",true},{"abc@.com.my",true},{"bc123@gmail.a",true},{"abc123@.com",true},
-            {"abc123@.com.com",true},{".abc@abc.com",true},{"abc()*@gmail.com",true},{"abc@%*.com",true},{"\"abc..2002@gmail.com",true},
-            {"abc.@gmail.com",true},{"abc@abc@gmail.com",true},{"abc@gmail.com.1a",true}
+        public emailValidationTest(String email, boolean expectedResult) {
+            this.email = email;
+            this.expectedResult = expectedResult;
+        }
 
-        });
-    }
-    @Test
-    void givenEmail_ShouldReturnAsPerThePArameterisedResult(){
+        @Parameterized.Parameters
+        public static Collection data() {
+            return Arrays.asList(new Object[][]{{"abc@yahoo.com", true},
+                    {"abc-100@yahoo.com", true}, {"abc.100@yahoo.com", true}, {"abc-100@abc.net", true},
+                    {"abc.100@abc.com.au", true}, {"abc@1.com", true}, {"abc@gmail.com.com", true}, {"abc+100@gmail.com", true},
+                    {"abc", false}, {"abc@.com.my", false}, {"bc123@gmail.a", false}, {"abc123@.com", false},
+                    {"abc123@.com.com", false}, {".abc@abc.com", false}, {"abc()*@gmail.com", false}, {"abc@%*.com", false}, {"\"abc..2002@gmail.com", false},
+                    {"abc.@gmail.com", false}, {"abc@abc@gmail.com", false}, {"abc@gmail.com.1a", false}
 
+            });
+        }
+
+        @Test
+        void givenEmail_ShouldReturnAsPerThePArameterisedResult() {
+            UserValidationUsingRegex validation = new UserValidationUsingRegex();
+            boolean result = validation.emailValidationTest(this.email);
+//        Assert.assertEquals(true,result);
+            Assert.assertEquals(this.expectedResult, result);
+        }
     }
 }
