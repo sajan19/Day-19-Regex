@@ -10,11 +10,10 @@ import java.util.Arrays;
 import java.util.Collection;
 @RunWith(Parameterized.class)
 public class UserValidationUsingRegexTest {
-    class emailValidationTest {
         String email;
         boolean expectedResult;
 
-        public emailValidationTest(String email, boolean expectedResult) {
+        public UserValidationUsingRegexTest(String email, boolean expectedResult) {
             this.email = email;
             this.expectedResult = expectedResult;
         }
@@ -26,17 +25,17 @@ public class UserValidationUsingRegexTest {
                     {"abc.100@abc.com.au", true}, {"abc@1.com", true}, {"abc@gmail.com.com", true}, {"abc+100@gmail.com", true},
                     {"abc", false}, {"abc@.com.my", false}, {"bc123@gmail.a", false}, {"abc123@.com", false},
                     {"abc123@.com.com", false}, {".abc@abc.com", false}, {"abc()*@gmail.com", false}, {"abc@%*.com", false}, {"\"abc..2002@gmail.com", false},
-                    {"abc.@gmail.com", false}, {"abc@abc@gmail.com", false}, {"abc@gmail.com.1a", false}
+                    {"abc.@gmail.com", false}, {"abc@abc@gmail.com", false}, {"abc@gmail.com.1a", false}, {"abc@.gmail.com.aa.au", false}
 
             });
         }
 
         @Test
-        void givenEmail_ShouldReturnAsPerThePArameterisedResult() {
+       public void givenEmail_ShouldReturnAsPerThePArameterisedResult() {
             UserValidationUsingRegex validation = new UserValidationUsingRegex();
             boolean result = validation.emailValidationTest(this.email);
 //        Assert.assertEquals(true,result);
             Assert.assertEquals(this.expectedResult, result);
         }
     }
-}
+
