@@ -12,22 +12,22 @@ public class UserValidator {
     //first name validation
     public boolean firstNameValidate(String firstName) throws UserRegistrationException {
         //Regex for first Name
-        String pattern = "^[A-Z][a-z]{2,}$";
+        String pattern = "^[A-Z]{1}[a-z]{2,}$";
         //Condition to check First Name Validity
         if (firstName.matches(pattern)) {
-            System.out.println("Valid First name");
+            System.out.println("First Name is Valid");
             return true;
         } else {
-            throw new UserRegistrationException("Please enter a valid first name");
+            throw new UserRegistrationException("Please enter a Valid First Name");
         }
     }
     //last name validation
     public boolean lastNameValidate(String lastName) throws UserRegistrationException {
         //Regex for last Name
-        String pattern = "^[A-Z][a-z]{2,}$";
+        String pattern = "^[A-Z]{1}[a-z]{2,}$";
         //Condition
         if (lastName.matches(pattern)) {
-            System.out.println("valid last name");
+            System.out.println("Last Name is Valid");
             return true;
         } else {
             throw new UserRegistrationException("Please enter a valid last name");
@@ -35,9 +35,12 @@ public class UserValidator {
     }
     //Email validation
     public boolean emailValidator(String email) throws UserRegistrationException {
-        String pattern = "^[a-zA-Z]{1,}([.\\-+]?[a-zA-Z0-9]+)?\\@[a-z0-9]{1,}\\.([a-z]{2,4})(\\.[a-z]{2,4})?$";
+        String pattern = "^[a-zA-Z0-9_+&*-]+(?:\\." +
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,17}$";
         if (email.matches(pattern)) {
-            System.out.println("valid email id");
+            System.out.println("Email ID is Valid");
             return true;
         } else {
             throw new UserRegistrationException("Please enter a valid email id");
@@ -45,9 +48,9 @@ public class UserValidator {
     }
     //Mobile number validation
     public boolean phoneNumberValidator(String phoneNumber) throws UserRegistrationException {
-        String pattern = "^([\\+]?91)[6-9]{1}[0-9]{9}$";
+        String pattern = "(0|91)?[\\s][7-9][0-9]{9}";
         if (phoneNumber.matches(pattern)) {
-            System.out.println("valid phone number");
+            System.out.println("Phone Number is Valid");
             return true;
         } else {
             throw new UserRegistrationException("Please enter a valid phone number");
@@ -55,9 +58,12 @@ public class UserValidator {
     }
     //Password validation
     public boolean passwordValidator(String password) throws UserRegistrationException {
-        String pattern = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?!(?:.*[!@#$%^&*]){2})[a-zA-Z0-9!@#$%^&*]{8,}$";
+        String pattern = "^(?=.*[0-9])"
+                + "(?=.*[a-z])(?=.*[A-Z])"
+                + "(?=.*[@#$%^&+=])"
+                + "(?=\\S+$).{8,20}$";
         if (password.matches(pattern)) {
-            System.out.println("valid password");
+            System.out.println("Password is Valid");
             return true;
         } else {
             throw new UserRegistrationException("Please enter a valid password");
