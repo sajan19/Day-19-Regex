@@ -2,12 +2,10 @@ package com.junit;
 
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-
 import static org.junit.Assert.*;
-
+//Create a Test Class
 public class UserValidatorTest {
-
-
+    //Test to Validate First Name
     @Test
     public void givenFirstName_WhenValid_ShouldReturnTrue() {
         UserValidator userValidator = new UserValidator();
@@ -17,7 +15,7 @@ public class UserValidatorTest {
             Assertions.assertEquals("Please enter a valid first name", e.getMessage());
         }
     }
-
+    //Test to Validate First Name
     @Test
     public void givenFirstName_WhenInvalid_ShouldReturnFalse() {
         UserValidator userValidator = new UserValidator();
@@ -27,7 +25,7 @@ public class UserValidatorTest {
             Assertions.assertEquals("Please enter a valid first name", e.getMessage());
         }
     }
-
+    //Test to Validate Last Name
     @Test
     public void givenLastName_WhenValid_ShouldReturnTrue() {
         UserValidator userValidator = new UserValidator();
@@ -36,7 +34,7 @@ public class UserValidatorTest {
         } catch (UserRegistrationException e) {
         }
     }
-
+    //Test to Validate Last Name
     @Test
     public void givenLastName_WhenInvalid_ShouldReturnFalse() {
         UserValidator userValidator = new UserValidator();
@@ -46,7 +44,7 @@ public class UserValidatorTest {
             Assertions.assertEquals("Please enter a valid last name", e.getMessage());
         }
     }
-
+    //Test to Validate Email
     @Test
     public void givenEmailAddress_WhenValid_ShouldReturnTrue() {
         UserValidator userValidator = new UserValidator();
@@ -55,7 +53,7 @@ public class UserValidatorTest {
         } catch (UserRegistrationException e) {
         }
     }
-
+    //Test to Validate Email
     @Test
     public void givenEmailAddress_WhenInvalid_ShouldReturnTrue() {
         UserValidator userValidator = new UserValidator();
@@ -65,7 +63,7 @@ public class UserValidatorTest {
             Assertions.assertEquals("Please enter a valid email id", e.getMessage());
         }
     }
-
+    //Test to Validate Phone Number
     @Test
     public void givenPhoneNumber_WhenValid_ShouldReturnTrue() {
         UserValidator userValidator = new UserValidator();
@@ -74,7 +72,7 @@ public class UserValidatorTest {
         } catch (UserRegistrationException e) {
         }
     }
-
+    //Test to Validate Phone Number
     @Test
     public void givenPhoneNumber_WhenInvalid_ShouldReturnFalse() {
         UserValidator userValidator = new UserValidator();
@@ -84,7 +82,7 @@ public class UserValidatorTest {
             Assertions.assertEquals("Please enter a valid phone number", e.getMessage());
         }
     }
-
+    //Test to Validate Password
     @Test
     public void givenPassword_WhenValid_ShouldReturnTrue() {
         UserValidator userValidator = new UserValidator();
@@ -93,7 +91,7 @@ public class UserValidatorTest {
         } catch (UserRegistrationException e) {
         }
     }
-
+    ////Test to Validate Password
     @Test
     public void givenPassword_WhenInvalid_ShouldReturnTrue() {
         UserValidator userValidator = new UserValidator();

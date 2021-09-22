@@ -1,5 +1,4 @@
 package com.junit;
-
 import java.util.Scanner;
 //Create a class
 public class UserValidator {
@@ -10,7 +9,6 @@ public class UserValidator {
     String phoneNumber;
     String password;
     Scanner scanner = new Scanner(System.in);
-
     //first name validation
     public boolean firstNameValidate(String firstName) throws UserRegistrationException {
         //Regex for first Name
@@ -25,6 +23,7 @@ public class UserValidator {
     }
     //last name validation
     public boolean lastNameValidate(String lastName) throws UserRegistrationException {
+        //Regex for last Name
         String pattern = "^[A-Z][a-z]{2,}$";
         //Condition
         if (lastName.matches(pattern)) {
@@ -44,10 +43,9 @@ public class UserValidator {
             throw new UserRegistrationException("Please enter a valid email id");
         }
     }
-    //Phone number validation
+    //Mobile number validation
     public boolean phoneNumberValidator(String phoneNumber) throws UserRegistrationException {
         String pattern = "^([\\+]?91)[6-9]{1}[0-9]{9}$";
-
         if (phoneNumber.matches(pattern)) {
             System.out.println("valid phone number");
             return true;
@@ -55,11 +53,9 @@ public class UserValidator {
             throw new UserRegistrationException("Please enter a valid phone number");
         }
     }
-
-    //password validation
+    //Password validation
     public boolean passwordValidator(String password) throws UserRegistrationException {
         String pattern = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?!(?:.*[!@#$%^&*]){2})[a-zA-Z0-9!@#$%^&*]{8,}$";
-
         if (password.matches(pattern)) {
             System.out.println("valid password");
             return true;
@@ -67,7 +63,7 @@ public class UserValidator {
             throw new UserRegistrationException("Please enter a valid password");
         }
     }
-
+    //Method to take Input from the User
     public void userInput() {
         while (true) {
             System.out.println("Enter the First name :");
@@ -130,11 +126,12 @@ public class UserValidator {
             }
         }
     }
-
+    //Driver Main Class
     public static void main(String[] args) {
         System.out.println("Welcome to user registration");
-
+    //Create an Object
         UserValidator user = new UserValidator();
+        //Calling of Method
         user.userInput();
     }
 }
